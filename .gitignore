@@ -40,4 +40,7 @@ next-env.d.ts
 package-lock.json
 
 # prettier config
-.prettierrc
+.prettierrc.js
+
+# credential google api
+credentials.json
