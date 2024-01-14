@@ -1,14 +1,27 @@
-// import { google } from 'googleapis'
+import { credentials } from '@/utils/clientSecret'
+import { google } from 'googleapis'
 
-// // authenticates the service account to be used in this context
+// authenticates the service account to be used in this context
+
 // const auth = new google.auth.GoogleAuth({
-//     keyFilename: 'credentials.json',
+//     keyFilename: credentials,
 //     scopes: [
 //         'https://www.googleapis.com/auth/drive',
 //         'https://www.googleapis.com/auth/drive.file',
 //         'https://www.googleapis.com/auth/spreadsheets',
 //     ],
 // })
+
+const { client_secret, client_id, redirect_uris } = credentials
+const oauth2Client = new google.auth.OAuth2(
+    client_id,
+    client_secret,
+    redirect_uris[0]
+)
+
+oauth2Client.setCredentials({})
+
+export const drive = google.drive({ version: 'v3', auth: oauth2Client })
 
 // export async function getData() {
 //     // allows you to use drive API methods e.g. listing files, creating files.

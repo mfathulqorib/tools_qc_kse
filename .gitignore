@@ -44,3 +44,4 @@ package-lock.json
 
 # credential google api
 credentials.json
+client_secret.json

@@ -1,10 +1,14 @@
-import { Form } from '@/components/Form'
-import Image from 'next/image'
+'use client'
+
+import { Button } from '@nextui-org/react'
+import { signIn } from 'next-auth/react'
 
 export default function Home() {
     return (
         <main>
-            <Form />
+            <Button onClick={() => signIn('google', { callbackUrl: '/test' })}>
+                Login with google
+            </Button>
         </main>
     )
 }
